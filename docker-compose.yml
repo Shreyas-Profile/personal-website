@@ -1,0 +1,13 @@
+services:
+  web:
+    image: nginx:alpine
+    container_name: shreyas-site-web
+    restart: unless-stopped
+    volumes:
+      - ./public:/usr/share/nginx/html:ro
+    networks:
+      - platform_default
+
+networks:
+  platform_default:
+    external: true
