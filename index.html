@@ -363,7 +363,7 @@
     /* LIVE DEMO TILES */
     .demo-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
     @media (max-width: 760px) {
@@ -544,6 +544,77 @@
       border-radius: 2px;
     }
     .demo-bell .bar-fill.quantum { background: #a78bfa; }
+
+    /* QUBITS preview — floating sphere with axes */
+    .demo-qubits .demo-preview {
+      background: linear-gradient(135deg, #1a1333 0%, #08061a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .demo-qubits .bloch-mini {
+      width: 92px;
+      height: 92px;
+      position: relative;
+      transform: rotate(-12deg);
+    }
+    .demo-qubits .bloch-ring {
+      position: absolute;
+      border: 1px solid rgba(167,139,250,0.55);
+      border-radius: 50%;
+    }
+    .demo-qubits .bloch-ring.r1 {
+      inset: 0;
+      border-top-color: rgba(167,139,250,0.9);
+    }
+    .demo-qubits .bloch-ring.r2 {
+      inset: 24% 0;
+      border-left-color: rgba(167,139,250,0.9);
+      border-right-color: rgba(167,139,250,0.9);
+      border-top: none;
+      border-bottom: none;
+      transform: rotateX(70deg);
+    }
+    .demo-qubits .bloch-arrow {
+      position: absolute;
+      left: 50%;
+      bottom: 50%;
+      width: 3px;
+      height: 44px;
+      background: linear-gradient(to top, #a78bfa, #e0d4ff);
+      transform: translate(-50%, 0) rotate(22deg);
+      transform-origin: bottom center;
+      border-radius: 2px;
+    }
+    .demo-qubits .bloch-arrow::after {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #e0d4ff;
+      box-shadow: 0 0 10px rgba(167,139,250,0.8);
+    }
+    .demo-qubits .bloch-labels {
+      position: absolute;
+      inset: 0;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: rgba(224,212,255,0.75);
+    }
+    .demo-qubits .lbl0 { position: absolute; top: -4px; left: 50%; transform: translateX(-50%); }
+    .demo-qubits .lbl1 { position: absolute; bottom: -4px; left: 50%; transform: translateX(-50%); }
+    .demo-qubits .glow-q {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(60% 70% at 70% 30%, rgba(167,139,250,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
     /* WEATHER preview — forecast card */
     .demo-weather .demo-preview {
@@ -1009,6 +1080,22 @@
             <span class="demo-meta">weather.shreyas.uk</span>
             <div class="demo-title">Ensemble weather<span class="arrow">→</span></div>
             <p class="demo-body">Five forecast models and real sensor data triangulated by an LLM into one honest, uncertainty-aware verdict.</p>
+          </div>
+        </a>
+        <a href="https://qubits.shreyas.uk" class="demo-tile demo-qubits" target="_blank" rel="noopener">
+          <div class="demo-preview">
+            <div class="glow-q"></div>
+            <div class="bloch-mini">
+              <div class="bloch-ring r1"></div>
+              <div class="bloch-ring r2"></div>
+              <div class="bloch-arrow"></div>
+              <div class="bloch-labels"><span class="lbl0">|0⟩</span><span class="lbl1">|1⟩</span></div>
+            </div>
+          </div>
+          <div class="demo-content">
+            <span class="demo-meta">qubits.shreyas.uk</span>
+            <div class="demo-title">Learn quantum, interactively<span class="arrow">→</span></div>
+            <p class="demo-body">Six hands-on lessons on a real Bloch sphere: qubits, superposition, measurement, entanglement, and Bell's theorem. AI tutor on the side.</p>
           </div>
         </a>
       </div>
